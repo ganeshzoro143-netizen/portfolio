@@ -92,4 +92,85 @@ document.addEventListener("DOMContentLoaded", function() {
             contactForm.reset();
         });
     }
+
+    // ===== Style Switcher Theme Toggle Logic =====
+    const styleSwitcher = document.getElementById('style-switcher');
+    const switcherToggle = document.getElementById('style-switcher-toggle');
+    const switcherClose = document.querySelector('.switcher-close');
+    const themeOptions = document.querySelectorAll('.theme-option');
+
+    // Toggle Style Switcher Panel
+    if (switcherToggle && styleSwitcher) {
+        switcherToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            styleSwitcher.classList.toggle('open');
+        });
+    }
+
+    if (switcherClose && styleSwitcher) {
+        switcherClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            styleSwitcher.classList.remove('open');
+        });
+    }
+
+    // Close switcher when clicking outside
+    document.addEventListener('click', (e) => {
+        if (styleSwitcher && styleSwitcher.classList.contains('open')) {
+            if (!styleSwitcher.contains(e.target)) {
+                styleSwitcher.classList.remove('open');
+            }
+        }
+    });
+
+    // Safe storage wrapper functions
+    function safeGetItem(key, defaultValue) {
+        try {
+            return localStorage.getItem(key) || defaultValue;
+        } catch (e) {
+            return defaultValue;
+        }
+    }
+
+    function safeSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (e) {
+            // Ignore security errors
+        }
+    }
+
+    // Theme switching function
+    function setTheme(themeName) {
+        // Remove all theme classes
+        document.body.classList.remove('theme-gradient', 'theme-cyberpunk', 'theme-neobrutalist', 'theme-minimalist');
+        
+        // Add new theme class
+        document.body.classList.add('theme-' + themeName);
+        
+        // Update active class on theme options in panel
+        themeOptions.forEach(option => {
+            if (option.getAttribute('data-theme') === themeName) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+        
+        // Save choice in localStorage
+        safeSetItem('portfolio-theme', themeName);
+    }
+
+    // Bind click handlers to theme options
+    themeOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const selectedTheme = this.getAttribute('data-theme');
+            setTheme(selectedTheme);
+        });
+    });
+
+    // Initialize saved theme or default to gradient
+    const savedTheme = safeGetItem('portfolio-theme', 'gradient');
+    setTheme(savedTheme);
 });

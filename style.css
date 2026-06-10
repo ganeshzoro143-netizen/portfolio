@@ -7,6 +7,8 @@
     
     --bg-color: #ffffff;
     --bg-alt: #f8f9fc;
+    --card-bg: #ffffff;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
     
     --text-main: #2b2d42;
     --text-muted: #6c757d;
@@ -113,7 +115,7 @@ a:hover {
 /* ===== Navbar ===== */
 .custom-navbar {
     height: var(--nav-height);
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--navbar-bg);
     backdrop-filter: blur(10px);
     transition: var(--transition);
 }
@@ -327,7 +329,7 @@ a:hover {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    background: #fff;
+    background: var(--card-bg);
     padding: 15px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
@@ -360,7 +362,7 @@ a:hover {
 
 /* ===== Skills Section ===== */
 .skill-category-card {
-    background: #fff;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
@@ -444,7 +446,7 @@ a:hover {
 }
 
 .timeline-content {
-    background: #fff;
+    background: var(--card-bg);
     padding: 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
@@ -478,7 +480,7 @@ a:hover {
 
 /* ===== Projects Section ===== */
 .project-card {
-    background: #fff;
+    background: var(--card-bg);
     border-radius: var(--radius);
     overflow: hidden;
     height: 100%;
@@ -617,6 +619,7 @@ a:hover {
     border: 1px solid var(--border-color);
     padding: 12px 15px;
     border-radius: 8px;
+    color: var(--text-main);
     transition: var(--transition);
 }
 
@@ -633,7 +636,7 @@ a:hover {
 
 /* ===== Footer ===== */
 .footer {
-    background: #fff;
+    background: var(--card-bg);
     padding: 40px 0;
     border-top: 1px solid var(--border-color);
 }
@@ -673,3 +676,577 @@ a:hover {
     font-size: 0.9rem;
     margin: 0;
 }
+
+/* ===== Theme Switching Transitions ===== */
+body {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.custom-navbar, 
+.info-card, 
+.skill-category-card, 
+.timeline-content, 
+.project-card, 
+.footer, 
+.btn, 
+.nav-link, 
+.form-control,
+.timeline::before,
+.timeline-dot {
+    transition: background 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease, transform 0.3s ease !important;
+}
+
+/* ===== Theme Classes ===== */
+
+/* Theme 1: Modern Aura (Default CSS is active, but we explicitly bind variables for completeness) */
+body.theme-gradient {
+    --primary: #6a11cb;
+    --secondary: #2575fc;
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-hover: linear-gradient(135deg, #5b0fbf 0%, #1e64e1 100%);
+    --bg-color: #ffffff;
+    --bg-alt: #f8f9fc;
+    --card-bg: #ffffff;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --text-main: #2b2d42;
+    --text-muted: #6c757d;
+    --border-color: #e9ecef;
+    --shadow-sm: 0 5px 15px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+    --radius: 10px;
+}
+
+/* Theme 2: Cyberpunk Neon */
+body.theme-cyberpunk {
+    --primary: #00f0ff;
+    --secondary: #ff007f;
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-hover: linear-gradient(135deg, #00c0cc 0%, #cc0066 100%);
+    --bg-color: #07070e;
+    --bg-alt: #0f0f1d;
+    --card-bg: #141427;
+    --navbar-bg: rgba(7, 7, 14, 0.95);
+    --text-main: #e2e2ec;
+    --text-muted: #8e8eaf;
+    --border-color: #1f1f3a;
+    --shadow-sm: 0 0 8px rgba(0, 240, 255, 0.25);
+    --shadow-md: 0 0 18px rgba(255, 0, 127, 0.35);
+    --radius: 0px;
+}
+
+body.theme-cyberpunk {
+    background-image: linear-gradient(rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-color: var(--bg-color);
+}
+
+body.theme-cyberpunk h1,
+body.theme-cyberpunk h2,
+body.theme-cyberpunk h3,
+body.theme-cyberpunk h4,
+body.theme-cyberpunk h5,
+body.theme-cyberpunk h6,
+body.theme-cyberpunk .navbar-brand,
+body.theme-cyberpunk .nav-link,
+body.theme-cyberpunk .btn {
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+body.theme-cyberpunk .info-card,
+body.theme-cyberpunk .skill-category-card,
+body.theme-cyberpunk .timeline-content,
+body.theme-cyberpunk .project-card,
+body.theme-cyberpunk .contact-card {
+    border: 1px solid var(--primary) !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.15) !important;
+}
+
+body.theme-cyberpunk .info-card:hover,
+body.theme-cyberpunk .skill-category-card:hover,
+body.theme-cyberpunk .timeline-content:hover,
+body.theme-cyberpunk .project-card:hover {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 0 18px rgba(255, 0, 127, 0.4) !important;
+    transform: translateY(-5px);
+}
+
+body.theme-cyberpunk .btn-gradient {
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2) !important;
+}
+
+body.theme-cyberpunk .btn-gradient:hover {
+    background: var(--primary) !important;
+    color: #000 !important;
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.5) !important;
+}
+
+body.theme-cyberpunk .btn-outline {
+    background: transparent !important;
+    color: var(--secondary) !important;
+    border: 2px solid var(--secondary) !important;
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.2) !important;
+}
+
+body.theme-cyberpunk .btn-outline:hover {
+    background: var(--secondary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 18px rgba(255, 0, 127, 0.5) !important;
+}
+
+body.theme-cyberpunk .custom-navbar {
+    border-bottom: 2px solid var(--primary) !important;
+}
+
+body.theme-cyberpunk .timeline::before {
+    background: var(--primary) !important;
+    box-shadow: 0 0 8px var(--primary);
+}
+
+body.theme-cyberpunk .timeline-dot {
+    background: var(--secondary) !important;
+    box-shadow: 0 0 8px var(--secondary) !important;
+}
+
+body.theme-cyberpunk .project-tech .badge {
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+}
+
+body.theme-cyberpunk .project-card:hover .badge {
+    background: var(--primary) !important;
+    color: #000 !important;
+    border-color: transparent !important;
+}
+
+
+/* Theme 3: Neo-Brutalist */
+body.theme-neobrutalist {
+    --primary: #ffd166;
+    --secondary: #06d6a0;
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
+    --gradient-hover: linear-gradient(135deg, #ffc53d 0%, #ffc53d 100%);
+    --bg-color: #f4f1de;
+    --bg-alt: #ebd9c0;
+    --card-bg: #ffffff;
+    --navbar-bg: #ffffff;
+    --text-main: #000000;
+    --text-muted: #111111;
+    --border-color: #000000;
+    --shadow-sm: 4px 4px 0px #000000;
+    --shadow-md: 8px 8px 0px #000000;
+    --radius: 0px;
+}
+
+body.theme-neobrutalist {
+    font-weight: 500;
+}
+
+body.theme-neobrutalist h1,
+body.theme-neobrutalist h2,
+body.theme-neobrutalist h3,
+body.theme-neobrutalist h4,
+body.theme-neobrutalist h5,
+body.theme-neobrutalist h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    color: #000;
+    text-transform: uppercase;
+}
+
+body.theme-neobrutalist .text-gradient {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: #000 !important;
+    text-shadow: 2px 2px 0px var(--primary);
+}
+
+body.theme-neobrutalist .info-card,
+body.theme-neobrutalist .skill-category-card,
+body.theme-neobrutalist .timeline-content,
+body.theme-neobrutalist .project-card,
+body.theme-neobrutalist .contact-card {
+    border: 3px solid #000 !important;
+    box-shadow: 6px 6px 0px #000 !important;
+    background: #ffffff !important;
+    border-radius: 0px !important;
+}
+
+body.theme-neobrutalist .info-card:hover,
+body.theme-neobrutalist .skill-category-card:hover,
+body.theme-neobrutalist .timeline-content:hover,
+body.theme-neobrutalist .project-card:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 9px 9px 0px #000 !important;
+}
+
+body.theme-neobrutalist .btn-gradient {
+    background: var(--primary) !important;
+    color: #000 !important;
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000 !important;
+    border-radius: 0px !important;
+    font-weight: 700;
+}
+
+body.theme-neobrutalist .btn-gradient:hover {
+    background: #ffc53d !important;
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px #000 !important;
+}
+
+body.theme-neobrutalist .btn-outline {
+    background: var(--secondary) !important;
+    color: #000 !important;
+    border: 3px solid #000 !important;
+    box-shadow: 4px 4px 0px #000 !important;
+    border-radius: 0px !important;
+    font-weight: 700;
+}
+
+body.theme-neobrutalist .btn-outline:hover {
+    background: #05be8e !important;
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px #000 !important;
+}
+
+body.theme-neobrutalist .custom-navbar {
+    border-bottom: 3px solid #000 !important;
+    box-shadow: none !important;
+}
+
+body.theme-neobrutalist .nav-link {
+    color: #000 !important;
+    font-weight: 700;
+}
+
+body.theme-neobrutalist .nav-link::after {
+    display: none !important;
+}
+
+body.theme-neobrutalist .nav-link:hover,
+body.theme-neobrutalist .nav-link.active {
+    background: var(--primary) !important;
+    border: 2px solid #000 !important;
+    box-shadow: 2px 2px 0px #000 !important;
+}
+
+body.theme-neobrutalist .timeline::before {
+    width: 4px !important;
+    background: #000 !important;
+}
+
+body.theme-neobrutalist .timeline-dot {
+    background: var(--primary) !important;
+    border: 3px solid #000 !important;
+    box-shadow: none !important;
+}
+
+body.theme-neobrutalist .project-tech .badge {
+    background: #ffffff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+    border-radius: 0px !important;
+    font-weight: 600;
+}
+
+body.theme-neobrutalist .project-card:hover .badge {
+    background: var(--primary) !important;
+    color: #000 !important;
+}
+
+body.theme-neobrutalist .contact-info-col {
+    background: var(--primary) !important;
+    border-right: 3px solid #000 !important;
+    color: #000 !important;
+}
+
+body.theme-neobrutalist .contact-info-col h3,
+body.theme-neobrutalist .contact-info-col h4,
+body.theme-neobrutalist .contact-info-col p,
+body.theme-neobrutalist .contact-info-col a {
+    color: #000 !important;
+}
+
+body.theme-neobrutalist .form-control {
+    border: 2px solid #000 !important;
+    border-radius: 0px !important;
+}
+
+body.theme-neobrutalist .form-control:focus {
+    box-shadow: 3px 3px 0px #000 !important;
+}
+
+body.theme-neobrutalist .contact-form-bg {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+
+/* Theme 4: Sleek Dark */
+body.theme-minimalist {
+    --primary: #ffffff;
+    --secondary: #a0a0a0;
+    --gradient: linear-gradient(135deg, #333333 0%, #111111 100%);
+    --gradient-hover: linear-gradient(135deg, #444444 0%, #222222 100%);
+    --bg-color: #0c0c0e;
+    --bg-alt: #16161a;
+    --card-bg: #16161a;
+    --navbar-bg: rgba(12, 12, 14, 0.85);
+    --text-main: #f5f5f7;
+    --text-muted: #8e8e93;
+    --border-color: #2c2c2e;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.7);
+    --radius: 12px;
+}
+
+body.theme-minimalist h1,
+body.theme-minimalist h2,
+body.theme-minimalist h3,
+body.theme-minimalist h4,
+body.theme-minimalist h5,
+body.theme-minimalist h6 {
+    color: #ffffff;
+}
+
+body.theme-minimalist .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+body.theme-minimalist .info-card,
+body.theme-minimalist .skill-category-card,
+body.theme-minimalist .timeline-content,
+body.theme-minimalist .project-card,
+body.theme-minimalist .contact-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+body.theme-minimalist .info-card:hover,
+body.theme-minimalist .skill-category-card:hover,
+body.theme-minimalist .timeline-content:hover,
+body.theme-minimalist .project-card:hover {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.theme-minimalist .btn-gradient {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05) !important;
+}
+
+body.theme-minimalist .btn-gradient:hover {
+    background: #f5f5f7 !important;
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.15) !important;
+}
+
+body.theme-minimalist .btn-outline {
+    border: 1px solid #444446 !important;
+    color: #f5f5f7 !important;
+}
+
+body.theme-minimalist .btn-outline:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.theme-minimalist .nav-link {
+    color: #8e8e93 !important;
+}
+
+body.theme-minimalist .nav-link:hover,
+body.theme-minimalist .nav-link.active {
+    color: #ffffff !important;
+}
+
+body.theme-minimalist .timeline::before {
+    background: #2c2c2e !important;
+}
+
+body.theme-minimalist .timeline-dot {
+    background: #ffffff !important;
+    border: 2px solid #0c0c0e !important;
+}
+
+
+/* ===== Style Switcher Panel ===== */
+#style-switcher {
+    position: fixed;
+    top: 20%;
+    right: -280px;
+    width: 280px;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-right: none;
+    border-radius: 15px 0 0 15px;
+    box-shadow: var(--shadow-md);
+    z-index: 9999;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease;
+    font-family: var(--font-heading);
+}
+
+#style-switcher.open {
+    right: 0;
+}
+
+#style-switcher-toggle {
+    position: absolute;
+    left: -48px;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    color: #ffffff;
+    border: 2px solid var(--border-color);
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-cyberpunk #style-switcher-toggle {
+    color: #000000 !important;
+    background: var(--primary) !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
+    border-color: var(--primary) !important;
+}
+
+body.theme-neobrutalist #style-switcher-toggle {
+    color: #000000 !important;
+    background: var(--primary) !important;
+    border: 3px solid #000 !important;
+    border-right: none !important;
+    box-shadow: -3px 3px 0px #000 !important;
+    border-radius: 0px !important;
+}
+
+body.theme-neobrutalist #style-switcher {
+    border: 3px solid #000 !important;
+    border-right: none !important;
+    box-shadow: -5px 5px 0px #000 !important;
+    border-radius: 0px !important;
+}
+
+body.theme-neobrutalist .theme-option {
+    border: 2px solid #000 !important;
+    border-radius: 0px !important;
+    box-shadow: 2px 2px 0px #000 !important;
+}
+
+body.theme-neobrutalist .theme-option.active {
+    background: var(--primary) !important;
+    box-shadow: 4px 4px 0px #000 !important;
+}
+
+body.theme-minimalist #style-switcher-toggle {
+    color: #000000 !important;
+    background: #ffffff !important;
+}
+
+#style-switcher-toggle i {
+    animation: rotatePalette 12s linear infinite;
+}
+
+@keyframes rotatePalette {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.switcher-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.switcher-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.switcher-close {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.switcher-close:hover {
+    color: var(--text-main);
+}
+
+.switcher-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.theme-option {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 12px;
+    cursor: pointer;
+    background: var(--bg-alt);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.theme-option:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.theme-option.active {
+    border-color: var(--primary);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--text-main);
+}
+
+.theme-preview {
+    display: flex;
+    gap: 6px;
+}
+
+.color-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Custom styles for contact form column container */
+.contact-form-bg {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+}
+
